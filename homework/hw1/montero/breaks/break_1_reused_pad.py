@@ -29,8 +29,7 @@ def space_anchor(cts: list[bytes]) -> list[int | None]:
     """Recover keystream bytes at columns that are a space in some message."""
     width = max(len(c) for c in cts)
     ks: list[int | None] = [None] * width
-    def is_letter(b: int) -> bool:
-        return 65 <= b <= 90 or 97 <= b <= 122
+    is_letter = lambda b: 65 <= b <= 90 or 97 <= b <= 122  # noqa: E731
     for k in range(width):
         for i, c in enumerate(cts):
             if len(c) <= k:
