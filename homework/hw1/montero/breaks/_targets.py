@@ -11,4 +11,4 @@ _TARGETS_DIR = os.path.normpath(os.path.join(_HERE, "..", "..", "duel-1-crypto")
 if _TARGETS_DIR not in sys.path:
     sys.path.insert(0, _TARGETS_DIR)
 
-import duel1_targets as targets  # noqa: E402  (re-exported for the break scripts)
+import duel1_targets as targets
