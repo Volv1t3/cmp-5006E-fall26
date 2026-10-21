@@ -27,7 +27,7 @@ this assignment.
 From the repository root, enter this directory:
 
 ```bash
-cd homework/hw1/Rodriguez_Felipe
+cd homework/hw1/rodriguez_felipe
 ```
 
 ### 1. Reused one-time pad — Tier 1
