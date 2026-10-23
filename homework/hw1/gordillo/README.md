@@ -1,6 +1,6 @@
 # Duel 1 — Crypto & Protocols
 
-**Homework 1 / Duel 1 — weeks 1–5.** Submission for `/homework/hw1/cadena-gordillo-jarrin-rodriguez/`.
+**Homework 1 / Duel 1 — weeks 1–5.** Omar Gordillo's individual PR submission is in `/homework/hw1/gordillo/`. The work was completed with the teammates listed below.
 
 ## Team
 
