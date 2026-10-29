@@ -1,0 +1,35 @@
+{
+  "search_queries": [
+    "and 1=1 is a tautology i learned in logic class",
+    "i want to select the union option on the benefits form",
+    "drop table tennis lessons for beginners",
+    "reserve the drop table at the makerspace for friday",
+    "search for wireless headphones under fifty dollars",
+    "find vegetarian restaurants near campus",
+    "show me the academic calendar for october",
+    "where can i borrow a laptop charger",
+    "compare the union membership plans",
+    "how do i update my mailing address"
+  ],
+  "support_requests": [
+    "my password reset link expired, can you resend it",
+    "i cannot access the course registration portal",
+    "please help me change my account email address",
+    "the payment receipt did not arrive in my inbox",
+    "can i cancel tomorrow's tutoring appointment",
+    "i need an invoice for last month's subscription",
+    "my two-factor authentication code is not arriving",
+    "please explain the return policy for electronics"
+  ],
+  "feedback": [
+    "the library study rooms are very helpful",
+    "please add more evening classes next term",
+    "the campus map should include accessible entrances",
+    "i enjoyed the introductory programming workshop",
+    "the cafeteria menu needs more gluten-free choices",
+    "the new timetable is easier to read",
+    "thank you for resolving my printing problem",
+    "i would like to suggest a weekend art class"
+  ],
+  "_comment": "26 legitimate user inputs for measuring WAF false positives; user text may contain attack-adjacent ordinary English."
+}
