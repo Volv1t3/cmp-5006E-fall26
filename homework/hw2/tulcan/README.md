@@ -103,3 +103,26 @@ The fixture verifier passed for all three vulnerabilities, the safe endpoint,
 and the benign corpus. All 20 notebook code cells passed Python syntax parsing.
 The scan source SHA-256 matches the committed duel evidence after normalizing
 line endings. The full DVWA/Ollama/Semgrep experiment was not rerun here.
+
+## Submission map
+
+- [attack/](attack/README.md): three Medium-level findings and archived oracles.
+- [defend/](defend/README.md): WAF, original evidence, standalone parameterized
+  fix, three same-intent SQLi mutations, and measured CSVs.
+- [duel/](duel/README.md): two recorded model reviews, scanner metrics, limitations.
+- [honesty.md](honesty.md): explicit limitations and fixture provenance.
+- [AI_LOG.md](AI_LOG.md): assistance disclosure.
+
+## Revision and remaining execution requirement
+
+The revised notebook clears old outputs to avoid attributing them to changed
+code. Original outputs remain in the archived attack/defense reports and duel
+artifacts. It now rejects request/oracle errors and tests three SQLi bypasses
+against DVWA, then replays all four SQLi inputs at Impossible.
+
+The supplemental local SQLite experiment is independently executable and has
+its own CSVs. It is not a substitute for a fresh DVWA run. Before claiming full
+strict-rubric compliance, run the revised notebook against local DVWA and confirm
+the three SQLi mutations. The recorded duel had no hallucinations; report that
+honestly. Ground truth originated in the instructor fixtures and was reviewed
+retrospectively; a claim of group construction before scanning would be false.

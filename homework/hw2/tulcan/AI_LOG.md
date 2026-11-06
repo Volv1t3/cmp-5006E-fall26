@@ -43,3 +43,15 @@ three group members in the notebook, add portable/PowerShell run instructions,
 and correct the fixture checker's repository-root path for this folder depth.
 The existing experiment outputs were preserved as Santiago's group evidence;
 this preparation does not claim a fresh local execution of the experiments.
+
+## Rubric revision
+
+Codex organized attack/defend/duel reports and honesty.md from the original
+notebook, preserved original output provenance, added a standalone SQLite SQLi
+lab with three same-intent bypasses and parameter binding, and added CSV exports.
+It reviewed vuln-web source directly and documented instructor-fixture origin
+without claiming a retrospective review was a pre-scan experiment. It hardened
+notebook validation against swallowed request errors, added DVWA replay cases,
+and cleared stale executable outputs. It did not invent an LLM hallucination or
+claim new DVWA/Ollama executions. The supplemental local lab is a different
+target, explicitly identified in all reports.
