@@ -46,10 +46,10 @@ kernel if it is not already available.
 
 ## Run the notebook
 
-From this directory, set only local configuration. Do not commit passwords.
+From the repository root, set only local configuration. Do not commit passwords.
 
 ```sh
-cd homework/hw2/arellano
+cd homework/hw2/tulcan
 export DVWA_BASE='http://127.0.0.1:60281'
 export DVWA_USERNAME='admin'
 # Either set DVWA_PASSWORD in your local shell or let the notebook prompt for it.
@@ -84,7 +84,7 @@ they should not be replaced by screenshots.
 From the repository root:
 
 ```powershell
-cd homework/hw2/arellano
+cd homework/hw2/tulcan
 $env:DVWA_BASE = "http://127.0.0.1:60281"
 $env:DVWA_USERNAME = "admin"
 jupyter lab hw2_web_attack_defend.ipynb
