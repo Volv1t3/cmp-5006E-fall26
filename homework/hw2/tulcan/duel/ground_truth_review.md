@@ -1,5 +1,10 @@
 # Manual source review of ground truth
 
+**Historical vuln-web review.** This document describes the original experiment.
+The current DVWA PHP reference is `../ground_truth_manual.json`, frozen in
+`reviewed_inputs.json` before the new PHP tool calls. The historical review below
+is preserved without changing its timing or instructor-fixture provenance.
+
 Review target: `labs/vuln-web/app/vulnweb_app.py`. This review records direct
 inspection of the source during submission preparation. It was performed after
 the existing tool results were available, so it cannot retroactively establish
@@ -19,6 +24,7 @@ is the instructor's; it was not independently constructed by the group before
 running the duel. `verify_fixtures.py` dynamically checks the three positive
 cases, the safe endpoint, and benign corpus against the local teaching app.
 
-For strict compliance with a requirement for a fresh pre-scan truth set, a new
-experiment on a separately reviewed target is needed. Do not represent this
-retrospective review as that experiment.
+This historical review cannot satisfy a fresh pre-scan truth-set requirement.
+The current PHP experiment uses `../ground_truth_manual.json` instead, with
+AI assistance and prior exposure disclosed. Human group review remains pending;
+neither the historical review nor AI assistance establishes that it occurred.

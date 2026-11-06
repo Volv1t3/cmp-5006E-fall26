@@ -1,31 +1,46 @@
 # Where our attack, defense, or comparison might be unfair.
 
-1. **Ground-truth provenance.** We used the instructor's supplied fixtures.
-   Submission preparation added a source review, but it occurred after the
-   recorded duel. Independence from the evaluated tool outputs is supported by
-   fixture provenance; a new group-authored pre-scan truth set was not produced.
-2. **Unequal tool tuning.** Our Semgrep rules intentionally miss indirect SQL
-   construction. The model sees source comments that label vulnerabilities and
-   suggest fixes. The reported scores describe this teaching setup, not a fair
-   general ranking of LLMs and production scanner rulesets.
-3. **Small benign corpus.** The 26 inputs are supplied teaching examples, not
-   sampled production traffic. The measured 7.69% false-positive rate must not
-   be generalized to real workloads. All fields use the same WAF rules.
-4. **Different targets.** Parts A/B attack DVWA; Part C reviews vuln-web. The
-   supplemental positive-fix experiment uses SQLite. Its results cannot be
-   relabeled as MySQL/DVWA evidence.
-5. **Limited oracles.** The XSS checks verify dangerous unescaped markup, not
-   observed browser execution. DVWA SQLi checks an additional known row instead
-   of the course app's literal canary. Command injection in the duel target is
-   simulated. These differences bound the claims being made.
-6. **Supplied structural fix.** The original notebook switches to DVWA Impossible;
-   the group did not implement that fix. The added parameterized SQLite path is
-   group submission code, evaluated separately and clearly labeled.
-7. **Reproducibility.** Original DVWA/Ollama outputs belong to Santiago's run.
-   Subsequent notebook code changes require a new run; old outputs do not prove
-   the modified code executed. Two LLM samples with identical findings do not
-   establish determinism, and no observed hallucination has been fabricated.
-8. **Remaining strict-rubric gap.** Three same-intent SQLi bypasses are tested in
-   the supplemental SQLite lab. A fresh DVWA Medium run is still needed to
-   confirm all three against the original target. New error checks ensure failed
-   requests cannot count as a successful structural defense in that rerun.
+1. **Reference exposure and authorship.** The original duel used instructor
+   fixtures and retrospective review. The new PHP reference was manually reasoned
+   with AI assistance before the new PHP tool calls, after exposure to historical
+   vuln-web results. It is not blinded; group members must review it before submission.
+2. **Unequal tool tuning.** Custom Semgrep rules intentionally miss SQL assembled
+   in a variable. Scores describe these teaching rules, not Semgrep's standard
+   security rules or a fair general ranking of models and scanners.
+3. **Corpus realism.** The 26 examples mix names, usernames and hosts. Sending
+   them through an ID-boundary filter measures its signatures, not whether they
+   are valid numeric-ID requests. The 7.69% FP rate is not a production estimate.
+   For example, `drop table tennis lessons for beginners` is legitimate search
+   text, but not a legitimate ID for this form. Thus 2/26 measures false positives
+   on the supplied generic corpus, not two valid DVWA lookups wrongly denied.
+4. **Oracle scope.** XSS verifies raw script markup, not browser execution. SQLi
+   discloses an additional seeded user row rather than the literal course canary.
+   Current command tests run the real local shell effect; historical vuln-web
+   command injection was simulated.
+   **Least portable Part-A finding: command injection.** Its oracle expects
+   `www-data` from `whoami`; a different container user, shell, or missing ping
+   utility can change the response. It succeeded 3/3 in the recorded environment,
+   but this is repeatability within one image, not across deployments.
+5. **Fix scope.** Our PHP parameterized fix protects the chosen SQLi statement.
+   It does not repair separate XSS/command endpoints or establish authorization.
+   DVWA Impossible remains supplied code; SQLite remains a supplemental target.
+6. **Model budget.** The new CPU experiment selects a smaller model than the
+   historical 3B run. Its behavior must not be generalized to larger models.
+   Comments and a recognizable teaching target can make review easier.
+7. **Scoring and variability.** Findings collapse to class/filename keys, and
+   duplicate database branches count once. Two samples are a small variability
+   measurement, not proof of determinism. No hallucination may be invented to
+   satisfy a report item; actual false positives are retained and discussed.
+8. **Access-control context.** Authentication is outside the reviewed snippets.
+   No observed A01 finding does not prove DVWA has no access-control weaknesses.
+9. **Execution provenance.** Historical macOS outputs are preserved separately.
+   Current CSVs/notebook record actual Windows-driven DVWA execution. Cached PHP
+   initially invalidated a fix test; implementation markers and revalidation
+   checks were added, and the final defense experiment was rerun successfully.
+10. **Format retries and explanation quality.** An initial model attempt failed
+    JSON parsing; both responses are retained in duel/format_attempt. Two new
+    structured-output calls are scored, with the same schema for both seeds.
+    Labels remain unconstrained. Even the one matching XSS finding has an
+    incorrect explanation; class/file precision does not measure reasoning
+    quality. The reference scores three intended findings rather than claiming
+    an exhaustive audit of all possible DVWA issues.
