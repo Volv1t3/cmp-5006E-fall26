@@ -20,7 +20,7 @@ def docker(*arguments):
 
 def evaluate_deployed_defenses(client, cases, sqli_bypasses, oracle, run_payloads):
     """Deploy both defenses at the very same DVWA Medium endpoint, then restore it."""
-    container = os.environ.get('DVWA_CONTAINER', 'hw2-tulcan-dvwa-1')
+    container = os.environ.get('DVWA_CONTAINER', 'hw2-arellano-dvwa-1')
     remote = '/var/www/html/vulnerabilities/sqli/source/medium.php'
     from seclab.attack import Payload
     payloads = [case['payload'] for case in cases.values()] + list(sqli_bypasses)

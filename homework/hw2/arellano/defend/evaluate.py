@@ -1,7 +1,7 @@
 """Reproducible, in-process SQLi defense experiment; no external services.
 
 This SQLite numeric-ID lab is a supplemental target, NOT a fresh DVWA run.
-Run from anywhere: python homework/hw2/tulcan/defend/evaluate.py
+Run from anywhere: python homework/hw2/arellano/defend/evaluate.py
 """
 import csv
 import html

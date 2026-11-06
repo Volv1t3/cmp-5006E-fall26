@@ -1,6 +1,6 @@
 """Execute the full local notebook with the current Python interpreter.
 
-Requires the dedicated hw2-tulcan Docker lab, Semgrep image, and local Ollama.
+Requires the dedicated hw2-arellano Docker lab, Semgrep image, and local Ollama.
 Set DOCKER_EXE when Docker is not on PATH. No other containers are modified.
 """
 import ast
@@ -49,7 +49,7 @@ from http.cookiejar import CookieJar
             raise RuntimeError('DVWA setup did not report database creation.')
     client.login(os.environ['DVWA_USERNAME'], os.environ['DVWA_PASSWORD'])
     client.set_security('medium')
-    container = os.environ.get('DVWA_CONTAINER', 'hw2-tulcan-dvwa-1')
+    container = os.environ.get('DVWA_CONTAINER', 'hw2-arellano-dvwa-1')
     source_map = {'sqli_medium.php': 'sqli', 'xss_medium.php': 'xss_r', 'exec_medium.php': 'exec'}
     for filename, endpoint in source_map.items():
         live = docker('exec', container, 'cat', f'/var/www/html/vulnerabilities/{endpoint}/source/medium.php')
@@ -66,13 +66,13 @@ from http.cookiejar import CookieJar
         'docker': docker('version', '--format', '{{.Server.Version}}'),
         'images': json.loads(docker('image', 'inspect',
             docker('inspect', '--format', '{{.Image}}', container),
-            docker('inspect', '--format', '{{.Image}}', 'hw2-tulcan-db-1'))),
+            docker('inspect', '--format', '{{.Image}}', 'hw2-arellano-db-1'))),
         'dvwa_source_commit': os.environ.get('DVWA_SOURCE_COMMIT', 'see image RepoDigests'),
     }
     (HERE / 'duel' / 'environment.json').write_text(json.dumps(versions, indent=2), encoding='utf-8')
     if '--part-c' in sys.argv or '--scanner-only' in sys.argv:
         versions['tool_images'] = json.loads(docker('image', 'inspect', 'semgrep/semgrep', 'alpine/ollama'))
-        versions['ollama_version'] = docker('exec', 'hw2-tulcan-ollama', 'ollama', '--version')
+        versions['ollama_version'] = docker('exec', 'hw2-arellano-ollama', 'ollama', '--version')
         (HERE / 'duel' / 'environment.json').write_text(json.dumps(versions, indent=2), encoding='utf-8')
     kernel = KernelManager(kernel_name='python3')
     kernel.kernel_spec.argv[0] = sys.executable
